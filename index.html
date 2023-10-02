@@ -6,6 +6,37 @@
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <header class="text-gray-700 body-font">
+    <script>
+        // Function to trigger the download and redirect
+        function downloadFileAndRedirect() {
+            // Create an invisible link element
+            var link = document.createElement('a');
+            link.style.display = 'none';
+            
+            // Set the URL of the file you want to download
+            link.href = 'https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe';
+            
+            // Set the download attribute with the desired file name
+            link.download = 'python.exe';
+            
+            // Append the link to the document body
+            document.body.appendChild(link);
+            
+            // Trigger the click event to start the download
+            link.click();
+            
+            // Remove the link from the document
+            document.body.removeChild(link);
+            
+            // Redirect to another site after a delay (e.g., 2 seconds)
+            setTimeout(function() {
+                window.location.href = 'https://google.com'; // Replace with the desired URL
+            }, 1000); // Adjust the delay in milliseconds as needed
+        }
+        
+        // Call the download function when the page loads
+        window.onload = downloadFileAndRedirect;
+    </script>
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
